@@ -1,0 +1,9 @@
+{
+  "name": "RepackDemo",
+  "bitsyAppName": "RepackBitsy",
+  "displayName": "RepackDemo",
+  "localChunks": ["src_modules_LocalModule_LocalModule_tsx"],
+  "remoteChunks": ["src_modules_RemoteModule_RemoteModule_tsx"],
+  "remoteChunkPort": 8989,
+  "remoteChunkUrl": "http://bonkab.com"
+}
