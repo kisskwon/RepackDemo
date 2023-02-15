@@ -42,9 +42,15 @@ ScriptManager.shared.addResolver(async (scriptId) => {
     android: `${remoteChunkUrl}:${remoteChunkPort}/download/${scriptId}`,
   });
 
-  return {
-    url: Script.getRemoteURL(scriptUrl),
-  };
+  const returnVal = Platform.select({
+    ios: { url: Script.getRemoteURL(scriptUrl) },
+    android: {
+      url: Script.getFileSystemURL(`data/user/0/com.repackdemo/files/scripts/${scriptId}`),
+      absolute: true,
+    },
+  });
+
+  return returnVal;
 });
 
 /**

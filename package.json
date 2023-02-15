@@ -9,8 +9,9 @@
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "bundle:ios": "react-native webpack-bundle --platform ios --entry-file index.js --dev=false",
-    "bundle:android": "react-native webpack-bundle --platform android --entry-file index.js --dev=false",
+    "bundle:android": "react-native webpack-bundle --platform android --entry-file index.js --dev=false && yarn hermes:android",
     "webpack": "webpack -c webpack.config.mjs --env platform=ios --env mode=production",
+    "hermes:android": "mkdir -p build/output/android/remote/hermes && node_modules/react-native/sdks/hermesc/osx-bin/hermesc -emit-binary -out ./build/output/android/remote/hermes/src_modules_RemoteModule_RemoteModule_tsx.chunk.bundle ./build/output/android/remote/src_modules_RemoteModule_RemoteModule_tsx.chunk.bundle",
     "start:remote": "node serve-remote-bundles.js"
   },
   "dependencies": {
